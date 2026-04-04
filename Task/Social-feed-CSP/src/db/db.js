@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 async function connectDB() {
-    await mongoose.connect("mongodb+srv://vishwakarmaanish50_db_user:gQjkgLq8gOxIMLLu@cluster0.s1oxsx1.mongodb.net/social-feed-csp")
+    await mongoose.connect(process.env.MONGO_URI)
 
     console.log("Database is connected successfully")
 }
