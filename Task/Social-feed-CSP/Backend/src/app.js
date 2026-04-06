@@ -5,8 +5,11 @@ const multer = require("multer")
 const imagekit = require("./services/storage.service")
 const uploadFile = require("./services/storage.service")
 const postModel = require("./models/post.model")
+const cors = require("cors")
+
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 // Set-up the multer
