@@ -12,7 +12,7 @@ async function authArtist(req, res, next) {
 
         if(decoded.role !== "artist") {
             res.status(403).json({
-                message : "You are not an Artist"
+                message : "You are not an Artist."
             })
         }
 
@@ -21,7 +21,7 @@ async function authArtist(req, res, next) {
 
     } catch (error) {
         res.status(401).json({
-            message : "Unauthorized"
+            message : "Unauthorized!"
         })
     }
 }
