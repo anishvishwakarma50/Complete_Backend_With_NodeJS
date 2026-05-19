@@ -21,7 +21,7 @@ async function authArtist(req, res, next) {
 
     } catch (error) {
         res.status(401).json({
-            message : "Unauthorized!"
+            message : "Unauthorized !"
         })
     }
 }
