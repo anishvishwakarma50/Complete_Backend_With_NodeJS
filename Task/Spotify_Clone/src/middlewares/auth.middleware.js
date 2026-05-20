@@ -4,7 +4,7 @@ async function authArtist(req, res, next) {
     const token = req.cookies.token
 
     if(!token) {
-        return res.status(401).json({ message : "Not logged in" })
+        return res.status(401).json({ message : "Not logged in. Login Again" })
     }
 
     try {
