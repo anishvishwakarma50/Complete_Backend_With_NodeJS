@@ -38,4 +38,23 @@ async function createAlbum(req, res) {
     })
 }
 
-module.exports = { createMusic, createAlbum }
+async function getAllMusic(req, res) {
+
+    // populate method is used to get the referenced model data
+    const musics = await musicModel.find().populate("artist", "username email")
+
+    res.status(200).json({
+        message : "All Music Fetched",
+        musics : musics
+    })
+}
+async function getAllAlbum(req, res) {
+    const albums = await albumModel.find().populate("musics").populate("artist")
+
+    res.status(200).json({
+        message : "Album with musics Featched Successfully",
+        albums : albums
+    })
+}
+
+module.exports = { createMusic, createAlbum, getAllMusic, getAllAlbum }
