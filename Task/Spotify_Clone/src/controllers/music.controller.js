@@ -41,7 +41,10 @@ async function createAlbum(req, res) {
 async function getAllMusic(req, res) {
 
     // populate method is used to get the referenced model data
-    const musics = await musicModel.find().populate("artist", "username email")
+    // const musics = await musicModel.find().populate("artist", "username email")
+    // If we use the above query then the problem will occure is all the data will get fetched into the ram and app will crash
+    // so for that we use find, skip ( offset ) and limit
+    const musics = await musicModel.find().skip(1).limit(10).populate("atist", "username email")
 
     res.status(200).json({
         message : "All Music Fetched",
