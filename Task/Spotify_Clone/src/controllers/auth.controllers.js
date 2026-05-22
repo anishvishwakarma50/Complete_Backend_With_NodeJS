@@ -93,4 +93,12 @@ async function login(req, res) {
     }
 }
 
+// the following logout is the basic one but the real one's follow the concept called Token Blacklisting
+async function logout(req, res) {
+    req.clearCookie("token")
+    res.status(200).json({
+        message : "User Logged Out Successfully"
+    })
+}
+
 module.exports = { register, login }
